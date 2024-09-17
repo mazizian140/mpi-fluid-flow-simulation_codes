@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build MPI",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-I", "C:/Program Files (x86)/Microsoft SDKs/MPI/Include",  // MPI include directory
+                "-I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um",  // Windows SDK include path for SAL
+                //"-I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/winrt",  // Windows SDK include path for SAL
+                "-I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/ucrt",  // Windows SDK include path for SAL
+                "-I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared",  // Windows SDK include path for SAL
+                //"-I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/cppwinrt",  // Windows SDK include path for SAL
+                "-L", "C:/Program Files (x86)/Microsoft SDKs/MPI/Lib/x64",  // MPI lib directory
+                "-lmsmpi",  // Link the msmpi library
+                "-o", "${workspaceFolder}/Source.exe",  // Output executable file
+                "${workspaceFolder}/Source.cpp"  // Source code file
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
